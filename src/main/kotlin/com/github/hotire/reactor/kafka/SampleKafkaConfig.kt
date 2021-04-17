@@ -7,7 +7,8 @@ import org.springframework.context.annotation.Configuration
 @Configuration
 class SampleKafkaConfig(private val kafkaProperties: KafkaProperties) {
 
+    val log by LoggerDelegate()
+
     @Bean
     fun sampleProducer() = SampleProducer(kafkaProperties.buildProducerProperties())
-
 }
